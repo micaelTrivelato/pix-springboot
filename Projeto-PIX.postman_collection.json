@@ -1,0 +1,363 @@
+{
+	"info": {
+		"_postman_id": "9332a618-16b5-4f86-82db-1916c7f8b43c",
+		"name": "Projeto-PIX",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25043682"
+	},
+	"item": [
+		{
+			"name": "Pessoa",
+			"item": [
+				{
+					"name": "savePessoa",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cpf\":\"00000000000\",\r\n    \"nome\":\"TesteNome\",\r\n    \"email\":\"email@hotmail.com.br\",\r\n    \"telefone\":\"11999999999\",\r\n    \"status\":\"Teste\",\r\n    \"login\":\"Teste\",\r\n    \"senha\":\"Teste\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/pessoa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/pessoa/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"pessoa",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Carteira",
+			"item": [
+				{
+					"name": "findAllCarteira",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/carteira",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"carteira"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/carteira/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"carteira",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "saveCarteira/ativaCarteira",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"idPessoa\": {\r\n            \"id\": 3\r\n        },\r\n        \"saldo\": 10000.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/carteira",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"carteira"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addPixCarteiraManual(NaoUtilizarForaDeTeste)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 3,\r\n    \"idPessoa\": {\r\n        \"id\": 1\r\n    },\r\n    \"saldo\": 0.1,\r\n    \"chavePix\": [\r\n        {\r\n            \"id\": 6,\r\n            \"tipoChave\": \"CELULAR\",\r\n            \"descricao\": \"TesteRelacao\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/carteira",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"carteira"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "removePixCarteira",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 3,\r\n    \"idPessoa\": {\r\n        \"id\": 1\r\n    },\r\n    \"chavePix\": [\r\n\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/carteira",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"carteira"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteChavePixFromCarteira",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/carteira/3/TesteRelacao",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"carteira",
+								"3",
+								"TesteRelacao"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "inativaCarteira",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/carteira/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"carteira",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ChavesPIX",
+			"item": [
+				{
+					"name": "findAllChavesPix",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/chaves-pix",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"chaves-pix"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "findById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/chaves-pix/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"chaves-pix",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "saveChavesPix",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tipoChave\":\"2\",\r\n    \"descricao\":\"TesteRelacao\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/chaves-pix/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"chaves-pix",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transferencia",
+			"item": [
+				{
+					"name": "findByIdCarteiraPagadora",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/transferencia/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transferencia",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "realizarTransferencia",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/transferencia?idCarteiraPagadora=3&chavePix=4044040430&valor=1000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"transferencia"
+							],
+							"query": [
+								{
+									"key": "idCarteiraPagadora",
+									"value": "3"
+								},
+								{
+									"key": "chavePix",
+									"value": "4044040430"
+								},
+								{
+									"key": "valor",
+									"value": "1000"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
